@@ -1,21 +1,24 @@
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Routed Authentication</title>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>TaskUp.com</title>
+  <meta name="author" content="TaskUp LLC">
+  <meta name="description" content="the only task list you'll ever need">
+  <meta name="keywords" content="task, todo, todo list, task list, cloud tasks, tasks by email, tasks by sms, tasks by txt, Instant Search, Instant Sync, Unlimited Undos, Notifications, Single Login">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/homepage.css" />
 </head>
 
-
-<!-- Very simple HTML at the moment -->
 <body>
     <!-- END Bootstrap modal -->
     {{> header}}
+
+    {{renderPage}}
 
     <div id="wrap">
         <div class="container-fluid">
             <div class="row-fluid">
                 <div id="main" class="span8 offset2">
-                    {{renderPage}}
                 </div>
             </div>
         </div>
@@ -26,9 +29,11 @@
     
 </body>
 
-
-
 <template name="header">
+
+</template>
+
+<template name="header2">
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
@@ -39,12 +44,6 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="nav-collapse collapse">
-
-                    <ul class="nav">
-                        <li class="{{ TabActive 'home'}}"><a href="/">Home</a></li>
-                        <li class="{{ TabActive 'about'}}"><a href="/static_pages/about">About Us</a></li>
-                        <li class="{{ TabActive 'terms'}}"><a href="/static_pages/terms">Terms</a></li>
-                    </ul>
 
                     {{#if currentUser }}
 
@@ -64,29 +63,459 @@
     </div>
 </template>
 
+<template name="home-menubar">
+    <div id="top" data-magellan-expedition="fixed">
+        <div class="row">
+            <div class="large-12 columns">
+                <nav class="top-bar">
+                  <ul class="title-area">
+                    <li class="name logo">
+                      <a href="#"><img src="img/taskup.png" alt=""></a>
+                    </li>
+                    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                  </ul>
+                  <section class="top-bar-section">
+                    <ul class="right">
+                      <li data-magellan-arrival="features"><a href="#features">Features</a></li>
+                      <li data-magellan-arrival="plans"><a href="#pricing-table">Plans</a></li>
+                      <li data-magellan-arrival="faq"><a href="#faq">FAQ</a></li>
+                      <li>
+                        <a class="button radius" href="#login" onclick="$('#loginbox').fadeIn();">Sign In</a>
+                      </li>
+                    </ul>
+                  </section>
+                </nav>
+            </div>
+        </div>
+    </div>
+</template>
 
+<template name="home-menubar-logo-solo">
+    <div id="top" data-magellan-expedition="fixed">
+        <div class="row">
+            <div class="large-12 columns">
+                <nav class="top-bar">
+                  <ul class="title-area">
+                    <li class="name logo">
+                      <a href="/"><img src="/img/taskup.png" alt=""></a>
+                    </li>
+                  </ul>
+                  <section class="top-bar-section">
+                    <ul class="right">
+                    </ul>
+                  </section>
+                </nav>
+            </div>
+        </div>
+    </div>
+</template>
+<template name="home-features">
+    <div class="section features">
+        <div class="row">
+            <div class="large-4 columns feature">
+                <span class="icon icon-checkmark" style="font-color:red;"></span>
+                <h3>Tasks Everywhere</h3>
+                <p>Split projects into small, manageable bits of work.<br>Real-time task updates streams keep you updated.</p>
+            </div>
+            <div class="large-4 columns feature">
+                <span class="icon icon-gauge"></span>
+                <h3>Project Management</h3>
+                <p>Simple & powerful tools keep you up in control.<br>See the big picture and don't miss a beat.</p>
+            </div>
+            <div class="large-4 columns feature">
+                <span class="icon icon-briefcase"></span>
+                <h3>Client Management</h3>
+                <p>Track multiple clients and automatically generate invoices based on real tasks completed.</p>
+            </div>
+        </div>
+    </div>
+    <div id="features" class="section product gray" data-magellan-destination="features">
+        <div class="row">
+            <div class="large-12 columns">
+                <h2>so what's inside?</h2>
+                <span class="subheading">We only give you features you care about.</span>
+                <div class="row">
+                    <div class="small-4 columns hints align-center">
+                        <div class="hint">
+                            <h3>Tasks<span class="icon icon-checkmark"></span></h3>
+                            <p>Organize your tasks with simple, feature-rich todos. Tag the, set priorities, due dates and notes, all in one.</p>
+                            <span class="arrow"></span>
+                        </div>
+                    </div>
+                    <div class="small-4 columns hints align-center">
+                        <div class="hint">
+                            <h3>Projects<span class="icon icon-list"></span></h3>
+                            <p>Organize similar tasks in quickly and efficiently. Drag & drop tasks from one project to another.</p>
+                            <span class="arrow"></span>
+                        </div>
+                    </div>
+                    <div class="small-4 columns hints align-center">
+                        <div class="hint">
+                            <h3>Invoices<span class="icon icon-docs"></span></h3>
+                            <p>Generate invoices with one click based on work logged. It's never been easier to get paid.</p>
+                            <span class="arrow"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-4 columns hints align-center">
+                        <div class="hint">
+                            <h3>Notifications<span class="icon icon-bell"></span></h3>
+                            <p>Stay on top of what you've got left to do. Get daily, weekly and monthly emails.</p>
+                            <span class="arrow"></span>
+                        </div>
+                    </div>
+                    <div class="small-4 columns hints align-center">
+                        <div class="hint">
+                            <h3>Secure<span class="icon icon-lock"></span></h3>
+                            <p>We use bank grade security, all the time. Rest assured, all communications are encrypted.</p>
+                            <span class="arrow"></span>
+                        </div>
+                    </div>
+                    <div class="small-4 columns hints align-center">
+                        <div class="hint">
+                            <h3>Reports<span class="icon icon-statistics"></span></h3>
+                            <p>With real-time summary charts and detailed reports, you'll always know what's going on.</p>
+                            <span class="arrow"></span>
+                        </div>
+                    </div>
+                </div>      
+                
+                <div class="row">           
+                    <div class="small-4 columns hints align-center">
+                        <div class="hint">
+                            <h3>Data Freedom<span class="icon icon-export"></span></h3>
+                            <p>We never lock you in. All your data is a click away from being liberated.</p>
+                            <span class="arrow"></span>
+                        </div>
+                    </div>
+                    <div class="small-4 columns hints align-center">
+                        <div class="hint">
+                            <h3>Instant Search<span class="icon icon-box"></span></h3>
+                            <p>Search through tasks, due dates, and details, with instant results.</p>
+                            <span class="arrow"></span>
+                        </div>
+                    </div>
+                    <div class="small-4 columns hints align-center">
+                        <div class="hint">
+                            <h3>Integration<span class="icon icon-cloud"></span></h3>
+                            <p>We play nice with JIRA and Google Tasks. Now you can, too.</p>
+                            <span class="arrow"></span>
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        </div>
+    </div>
+</template>
 <!-- Static Pages -->
+
+
+<template name="home-loginbox">
+    <div id="loginbox" class="" style="margin-top:80px">
+        <div class="row">
+            <div class="large-4 columns align-center">
+                <h2>get started with <span class="grey">social</span></h2>
+                <div style="display:inline-block; padding: 10px">
+                    <a href="/auth/facebook?type=web"><img src="/img/social/facebook.png" style="border:0px; "></a> &nbsp;
+                </div>
+                <div style="display:inline-block; padding: 10px">
+                    <a href="/auth/google?type=web"><img src="/img/social/google.png" style="border:0px; "></a> &nbsp;
+                </div>
+                <div style="display:inline-block; padding: 10px">
+                    <a href="/auth/windows?type=web"><img src="/img/social/windows.png" style="border:0px; "></a> &nbsp;
+                </div>
+            </div>
+            <div class="large-2 columns align-center">
+                <h2><span class="grey">or</span></h2>
+            </div>
+            <div class="large-6 columns align-left">
+                <script type="text/javascript">
+                $(function(){
+                    $('#name').hide();
+                    $('#password2').hide();
+                });
+
+                function loginformsingle() {
+                    var email = $('#email').val();
+                    var password = $('#password').val();
+                    var password2 = $('#password2').val();
+                    var name = $('#name').val();
+
+                    if (email == '' || password == '') {
+                        show_alert_single('Please enter both your email and password');
+                        return;
+                    }
+
+                    var action_type = $('#action').val();
+                    if (action_type == "login") {
+                        $.ajax({
+                            type: "GET",
+                            url:  '/auth/logincheck',
+                            dataType: 'json',
+                            data: {
+                                email: email,
+                                password: password
+                            },
+                            success: function (data) {
+                                if (data == "0") {
+                                    show_alert_single('Incorrect email or password');
+                                } else if (data == "1") {
+                                    show_alert_single('Great! Taking you to TaskUp now!');
+                                    window.location = "/home";
+                                } else if (data == "3") {
+                                    show_alert_single('Please check your email for further instructions!');
+                                }
+                            },
+                            error: function () {
+                                show_alert_single('Incorrect email or password');                               
+                            }
+                        });
+
+                    } else {
+                        if (name == '') {
+                            show_alert_single('Please enter your full name');
+                            return;
+                        }
+
+                        if (name.match(/ /g) == null) {
+                            show_alert_single('Please enter your full name (first and last)');
+                            return;
+                        }
+
+                        if (password != password2) {
+                            show_alert_single('Your passwords don\'t match.');
+                            return;
+                        }
+
+                        $('#alert').hide();
+
+                        $.ajax({
+                            type: "GET",
+                            url:  '/auth/createaccount',
+                            dataType: 'json',
+                            data: {
+                                email: email,
+                                password: password,
+                                name: name
+                            },
+                            success: function (data) {
+                                if (data == "0") {
+                                    show_alert_single('Incorrect email or password');
+                                } else if (data == "1") {
+                                    show_alert_single('Great! Taking you to TaskUp now!');
+                                    window.location = "/home";
+                                } else if (data == "3") {
+                                    show_alert_single('Please check your email for further instructions!');
+                                }
+                            },
+                            error: function () {
+                                show_alert_single('Incorrect email or password');                               
+                            }
+                        });
+
+                    }
+                    
+
+                }
+
+                function show_alert_single(val) {
+                    $('#alertlogin').html(val);
+                    $('#alertlogin').show();
+                }
+
+                function make_sign_up() {
+                    $('#signupinfo').hide();
+                    $('#loginbutton').html('Sign up');
+                    $('#name').show();
+                    $('#password2').show();
+                    $('#action').val('signup');
+                    $('#alertlogin').hide();
+                }
+
+                function make_sign_in() {
+                    $('#signupinfo').show();
+                    $('#loginbutton').html('Sign in');
+                    $('#name').hide();
+                    $('#password2').hide();
+                    $('#action').val('signin');
+
+                }
+
+                make_sign_in();
+                </script>
+                <h2><span class="grey">email</span> sign in</h2>
+
+                <div style="display:inline; padding: 5px" class="small-2 columns">
+                    <img src="/img/email.png" style="border:0px;">
+                </div>
+                <div id="alertlogin" class="alert alert-error" style="margin-left:0px; display:none; width: 415px; text-align:center; height: 13px; padding-top: 2px; font-size: 14px"></div>
+            
+                <form class="form-inline small-3 columns" onsubmit="loginformsingle(); return false;">
+                    <input id="action" type="hidden" value="signup">
+                    <input id="email" type="text" class="input" placeholder="email" style="margin-left:0px; width: 180px; display:inline">
+                    <input id="password" type="password" class="input" placeholder="password" style="margin-left:10px; width:180px; display:inline">
+                    <button id="loginbutton" type="submit" class="button btn small" onclick="" style="margin-left:10px">Sign up</button><br>
+                    <div id="signupinfo" onclick="make_sign_up(); return false;" class="alert alert-info" style="margin-top: 10px; margin-left: 0px; width: 415px; text-align: center; height: 13px; padding-top: 2px; font-size: 14px;">Don't have an account? <b><a href="#" onclick="make_sign_up(); return false;">Sign Up for Free!</a></b></div>
+                    <input id="name" type="text" class="input" placeholder="full name" style="margin-left: 0px; margin-top: 10px; width: 180px; display:inline; display:none; ">
+                    <input id="password2" type="password" class="input" placeholder="confirm password" style="margin-top: 10px; width: 180px; display:inline; margin-left: 10px; display:none; ">
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+
+<template name="home-reviews">
+    <div id="screenshot" class="section screenshot">
+        <div class="row">
+            <div class="large-12 columns">
+                <h2>don't just take our word for it..</h2>
+                <br>
+                <span class="subheading"><a href="http://web.appstorm.net/reviews/project-management/never-forget-a-thing-with-taskup/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+webappstorm+%28Web+AppStorm%29">"TaskUp paves the way for non-clunky and outdated interfaces that it realises<br> can have an effect on the overall experience"</a> <br>AppStorm</span>
+                <span class="subheading"><a href="http://appsrevealed.com/taskup-task-management/">"The biggest strength of TaskUp is its easy interface. Even my 8 year old kid could use this. It is so simple."</a> <br>AppsRevealed</span>
+                <span class="subheading"><a href="http://lifehacker.com/5937192/taskup-offers-simple-fast-and-flexible-to%20do-tracking?utm_campaign=socialflow_lifehacker_twitter&utm_source=lifehacker_twitter&utm_medium=socialflow">"If you haven't found the perfect to-do manager yet and you'd like something simple, fast, and web-based, TaskUp is worth a look."</a> <br>LifeHacker</span>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="home-pricing-table">
+    <div id="pricing-table" class="section pricing gray" data-magellan-destination="plans">
+        <div class="row price-table">
+            <h2>so how much will all this cost you?</h2>
+            <div class="large-4 columns">
+                <ul class="pricing-table">
+                  <li class="title">Free</li>
+                  <li class="description">No tricks, just features</li>
+                  <li class="price">free</li>
+                  <li><a class="price-table-toggle">+ Show features</a></li>
+                  <li class="bullet-item">Unlimited Tasks & Projects</li>
+                  <li class="bullet-item">3 Client & Invoice</li>
+                  <li class="bullet-item">1 User</li>
+                  <li class="bullet-item">Data Export</li>
+                  <li class="bullet-item">Email Support</li>
+                  <li class="cta-button"><a class="button secondary radius" href="#">Get Started</a></li>
+                </ul>
+            </div>
+            <div class="large-4 columns">
+                <ul class="pricing-table featured">
+                  <li class="title">Freelancer</li>
+                  <li class="description">We make money only when you do</li>
+                  <li class="price">$ 0.99 per Month</li>
+                  <li><a class="price-table-toggle">+ Show features</a></li>
+                  <li class="bullet-item">Unlimited Tasks & Projects</li>
+                  <li class="bullet-item">Unlimited Clients & Invoices</li>
+                  <li class="bullet-item">3 Users</li>
+                  <li class="bullet-item">Data Export</li>
+                  <li class="bullet-item">Email Support</li>
+                  <li class="cta-button"><a class="button radius" href="#">Get Started</a></li>
+                </ul>
+            </div>
+            <div class="large-4 columns">
+                <ul class="pricing-table">
+                  <li class="title">Business</li>
+                  <li class="description">No more ramen!</li>
+                  <li class="price">$ 4.99 per Month/User</li>
+                  <li class="bullet-item">Unlimited Tasks & Projects</li>
+                  <li class="bullet-item">Unlimited Clients & Invoices</li>
+                  <li class="bullet-item">Unlimited Users</li>
+                  <li class="bullet-item">JIRA Integration</li>
+                  <li class="bullet-item">Phone Support</li>
+                  <li class="cta-button"><a class="button secondary radius" href="#">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="home-faq">
+    <div id="faq" class="section product" data-magellan-destination="faq">
+        <div class="row">
+            <div class="large-12 columns">
+                <h2>got question? we've got answers</h2>
+                <div class="row">
+                    <div class="small-12 columns hints align-left">             
+                        <ul>
+                            <li>
+                                <h3>How do you keep my personal information safe?</h3>
+                                <p>We employ bank-grade encryption to keep third parties from seeing your data. Additionally, your data is stored in encrypted form in our databases.</p>
+                            </li>
+                            <li>
+                                <h3>How do I cancel my account?</h3>
+                                <p>Simply login to your account, click on "Settings", and in "Profile" you will see a button to cancel your account.</p>
+                            </li>
+
+                            <li>
+                                <h3>Will TaskUp work with my computer?</h3>
+                                <p>TaskUp’s only requirement is a modern browser such as Chrome, Safari, or Firefox. It will work on both Mac and PC computers. Internet Explorer is currently not supported.</p>
+                            </li>
+                            <li>
+                                <h3>Can I get a refund?</h3>
+                                <p>If you tried TaskUp and didn't like it, we’ll give you a full refund within 30 days, no questions asked. Simply contact our support team and we’ll issue you a refund within 24 hours.</p>
+                            </li>
+                            <li>
+                                <h3>Help! I’ve got a problem!</h3>
+                                <p>Don’t worry, we're here to help! Our support team is always ready to answer questions via email, Facebook or Twitter. You can leave us feedback or report an issue by pressing the "feedback" button at the bottom of every page or contact us at <a href="mailto:support@taskup.com">support@taskup.com</a></p>
+                            </li>
+                        </ul>                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<template name="home-footer">
+    <footer>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <div class="row">
+            <div class="large-6 columns">
+                <ul class="inline-list">
+                  <li class="copyright">2013 &copy; TaskUp</a></li>
+                  <li><a href="/static/terms" target="_blank">Terms and Conditions</a></li>
+                  <li><a href="/static/privacy" target="_blank">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="large-6 columns">
+                <ul class="inline-list right">
+                    <li><a href="https://facebook.com/taskup" class="icon icon-facebook"></a></li>
+                    <li><a href="https://twitter.com/twitter" class="icon icon-twitter"></a></li>
+                    <li><a href="https://plus.google.com/b/101968236864868716739/101968236864868716739/" class="icon icon-googleplus"></a></li>
+                    <li><a href="https://github.com/taskup" class="icon icon-github"></a></li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+</template>
+
+<template name="home-branding-splash">
+    <header id="header">
+        <div class="row">
+            <div class="large-12 columns align-center">
+                <h1>the task list redefines project management</h1>
+                <span class="subheading">Manage all your tasks, projects, and clients in one place</span>
+            </div>
+        </div>
+    </header>
+</template>
+
 <template name="home">
-    <div class="well">
-        <h1>Welcome to SampleApp</h1>    
-    </div>
+    {{> home-menubar}}
+    {{> home-loginbox}}
+
+    {{> home-branding-splash}}
+    {{> home-features}}
+    {{> home-reviews}}
+    {{> home-pricing-table}}
+    {{> home-faq}}
+
+    {{> home-footer}}
 </template>
-
-<template name="about">
-    <div class="content">
-        <h3>About Us</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur minus nobis similique harum aliquid tempora ad! Rerum molestiae accusamus quod fuga dolorem omnis porro perferendis iusto sequi blanditiis. Similique dolore.</p>
-    </div>
-</template>
-
-<template name="terms">
-    <div class="content">
-        <h3>Terms and Conditions</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur minus nobis similique harum aliquid tempora ad! Rerum molestiae accusamus quod fuga dolorem omnis porro perferendis iusto sequi blanditiis. Similique dolore.</p>
-    </div>
-</template>
-
-
 
 <template name="loggedin_header">
     {{#if loggingIn}}
@@ -277,4 +706,200 @@
         
         <button class="btn btn-success btn-large pull-right" type="submit" id="createUser" data-loading-text="Creating user...">Create Your Account</button>
     </form>
+</template>
+
+
+
+
+<template name="privacy">
+    {{> home-menubar-logo-solo}}
+    <div class="row" style="margin-top:60px">
+    <br>
+    <h1>Privacy Policy</h1><br>
+    <p>
+    Thank you for visiting taskup.com's ("taskup") Internet web site ("Site") located at the URL www.taskup.com. This Privacy Policy details certain policies implemented throughout taskup governing the use of personally identifiable information about users of our Site and users of services available through this Site (the "Services").<br>
+    <br>
+    Privacy Policy Updates<br>
+    Any updates to this privacy policy will be sent to the email address on file for your account. If any modification is unacceptable to you, you shall cease using this Site and the Services. If you do not cease using this Site and the Services, you will be deemed to have accepted the change(s).<br>
+    <br>
+    Information Collection and Use<br>
+    You can generally visit our Site without revealing any personally identifiable information about yourself. Personal identifiable information such as your email address, phone number, postal address, and payment information may be collected if you choose to sign up for an account on the site. This information will be strictly used to identify you on the system and will not be sold to third parties or shared without your consent.<br>
+    <br>
+    We may use your personally identifiable information to register you to use our Site and Services, deliver certain services, provide notices regarding services or services you have purchased or licensed, and verify your authority to enter our Site, and to contact you, including by email or telephone. We may use your email address and telephone number to contact you, without further consent, for administrative communications, to address copyright infringement or defamation or other violations of Terms of Service issues, or to contact you regarding your membership, subscription, or any content that you have posted to or downloaded from the Site.<br>
+    <br>
+    Cookies<br>
+    When you use or access the taskup Site we may use small text files containing a string of alphanumeric characters called cookies to improve overall Site experience, among other things. A cookie is a piece of data stored on the user's hard drive containing information about the user. Cookies generally do not permit us to personally identify you. taskup may use both session cookies and persistent cookies. A session cookie generally disappears after you close your browser. A persistent cookie remains after you close your browser and may be used by your browser on subsequent visits to the taskup site or other web sites. Persistent cookies can generally be removed by you. Please review your web browser "Help" file to learn the proper way to modify your cookie settings and to remove cookies. We may also use web beacons on our site and in emails that we send to you. We may collect information regarding pages visited, searches performed, and actions made.<br>
+    <br>
+    Automatically Collected Information<br>
+    When you access the Site or open one of our HTML emails, we may automatically record certain information from your system by using different types of tracking technology, including server logs. This "automatically collected" information may include Internet Protocol address ("IP Address"), a unique device or user ID, version of software installed, system type, browser used, the content and pages that you access on the Site, the dates and times that you visit the Site, actions that you made and items that you clicked on.<br>
+    <br>
+    Like most Web sites, our servers automatically record the page requests made when you visit our sites. These "server logs" typically include your web request, Internet Protocol address, browser type, browser language, the date and time of your request and one or more cookies that may uniquely identify your browser.<br>
+    <br>
+    Aggregate Information<br>
+    The Site may track the total number of visitors to our Site, the number of visitors to each page of our Site, browser type, and IP addresses, and we may analyze this data for trends and statistics in the aggregate, but such information will be maintained, used and disclosed in aggregate form only and it will not contain personally identifiable information. We may use such aggregate information to analyze trends, administer the Site, track users' movement, and gather broad demographic information for aggregate use.<br>
+    <br>
+    Disclosure<br>
+    We will disclose your personally identifiable information if we reasonably believe we are required to do so by law, regulation or in cooperation with any governmental investigation, including upon receipt of what we believe may be a valid subpoena, whether issued by a Court that has jurisdiction over taskup or not. (Please note that taskup reserves the right to assert that only the court in the U.S. have jurisdiction, and subpoenas from outside those jurisdictions must be "domesticated," though we are not obligated to do so.)<br>
+    <br>
+    We will not sell your personally identifiable information to any company or organization; however, we may transfer your personally identifiable information to a successor entity upon a merger, consolidation or other corporate reorganization in which taskup participates or to a purchaser of all or substantially all of taskup's assets to which this Site relates.<br>
+    <br>
+    Profile Information<br>
+    You may choose to add personal information which may include any details you seem fit on your personalized business page. This will be visible to other users on taskup as well as to anyone visiting the site.<br>
+    <br>
+    Under no circumstances will taskup give away any of your payment information. We do not keep Credit card details or payment details. Credit card details are never sent to taskup servers. Rather, we use a third party credit card processor, Stripe (http://www.stripe.com). Stripe has been audited by a PCI-certified auditor, and is certified to <a href="http://usa.visa.com/download/merchants/cisp-list-of-pcidss-compliant-service-providers.pdf">PCI Service Provider Level 1</a>. This is the most stringent level of certification available. Your credit card details are converted to a single-use encrypted token which is then safely passed to Stripe for payment authorization.<br>
+    <br>
+    taskup Users<br>
+    We will disclose your personally identifiable information if we reasonably believe we are required to do so by law, regulation or in cooperation with any governmental investigation. We will not sell your personally identifiable information to any company or organization except we may transfer your personally identifiable information to a successor entity upon a merger, consolidation or other corporate reorganization in which taskup participates or to a purchaser of all or substantially all of taskup's assets to which this Site relates.<br>
+    <br>
+    Security<br>
+    taskup forces HTTPS for all services, including our public website. We regularly audit the details of our implementation: the certificates we serve, the certificate authorities we use, and the ciphers we support. <br>
+    We may employ procedural and technological security measures that are reasonably designed to help protect your personally identifiable information from loss, unauthorized access, disclosure, alteration or destruction. taskup may use encryption, password protection, and other security measures to help prevent unauthorized access to your personally identifiable information. YOU ARE RESPONSIBLE FOR MAINTAINING THE SECRECY OF YOUR UNIQUE PASSWORD AND ACCOUNT INFORMATION AT ALL TIMES. WE CANNOT, HOWEVER, ENSURE OR WARRANT THE SECURITY OF ANY INFORMATION YOU TRANSMIT TO US, AND YOU DO SO AT YOUR OWN RISK. ONCE WE RECEIVE YOUR TRANSMISSION OF INFORMATION, WE MAKE COMMERCIALLY REASONABLE EFFORTS TO ENSURE THE SECURITY OF OUR SYSTEMS. HOWEVER, PLEASE NOTE THAT THIS IS NOT A GUARANTEE THAT SUCH INFORMATION MAY NOT BE ACCESSED, DISCLOSED, ALTERED, OR DESTROYED BY BREACH OF ANY OF OUR PHYSICAL, TECHNICAL, OR MANAGERIAL SAFEGUARDS. IF WE LEARN OF A SECURITY SYSTEMS BREACH, THEN WE MAY ATTEMPT TO NOTIFY YOU ELECTRONICALLY SO THAT YOU CAN TAKE APPROPRIATE PROTECTIVE STEPS. WE MAY POST A NOTICE ON THE SITE IF A SECURITY BREACH OCCURS. DEPENDING ON WHERE YOU LIVE, YOU MAY HAVE A LEGAL RIGHT TO RECEIVE NOTICE OF A SECURITY BREACH IN WRITING.<br>
+    <br>
+    If you have any questions regarding this Privacy Policy please contact us via email at privacy@taskup.com
+
+    <br>
+    This Privacy Policy was last updated: June 1st, 2013<br>
+    This Privacy Policy is effective as of: June 1st, 2013<br><br>
+    </p>
+    </div>
+</template>
+
+<template name="terms">
+    {{> home-menubar-logo-solo}}
+    <div class="row" style="margin-top:60px">
+    <br>
+    <h1>Terms of Service</h1><br>
+    <p>
+    These terms of service (the agreement) governs your use of our task, project and networking services (the "Services"), whether chargeable or not, as available to you through www.taskup.com (the "Website"), which is owned, maintained and operated by TaskUp LLC, a private company incorporated in the U.S. ("TaskUp, LLC")<br>
+    <br>
+    YOU SIGNIFY YOUR ASSENT TO THIS AGREEMENT BY CLICKING A BOX INDICATING YOUR ACCEPTANCE OF THIS AGREEMENT OR BY ACTUALLY USING THE SERVICES PROVIDED THROUGH THE WEBSITE. IF YOU DO NOT AGREE WITH THE TERMS AND CONDITIONS SET FORTH HEREIN, YOU MUST NOT ACCEPT THIS AGREEMENT AND MAY NOT USE THE SERVICES.<br>
+    <br>
+    IF YOU ARE ENTERING INTO THIS AGREEMENT ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY, YOU REPRESENT THAT YOU HAVE THE AUTHORITY TO BIND SUCH ENTITY AND ITS AFFILIATES TO THIS AGREEMENT, IN WHICH CASE THE TERMS "YOU" OR "YOUR" SHALL REFER TO SUCH ENTITY AND ITS AFFILIATES. IF YOU DO NOT HAVE SUCH AUTHORITY, YOU MUST NOT ACCEPT THIS AGREEMENT ON THEIR BEHALF.<br>
+    <br>
+    The use of certain Services may be subject to additional terms and conditions in respect with such Services. Certain additional terms are set forth in Appendix A attached hereto. Unless otherwise provided by the additional terms and conditions applicable to the Services in which you choose to participate (the "Additional Terms"), those Additional Terms are hereby incorporated into this Agreement as an integral part hereof. In the event of a conflict between this Agreement and the Additional Terms, the Additional Terms shall prevail. NOTE that omission of a Partner and/or its Services Additional Terms, shall not release you from complying with any of Partner's Additional Terms relating to the use of Services by You.<br>
+    <br>
+    TaskUp may modify this Agreement from time to time and such modification shall be effective upon posting by on the Website. You agree to be bound to any changes to this Agreement when you use the Services after any such modification is posted. It is therefore important that you review this Agreement regularly upon each use of the Services to ensure you are updated as to any changes.<br>
+    <br>
+    You may not access the Services for purposes of monitoring their availability, performance or functionality, or for any other benchmarking or competitive purposes.<br>
+    <br>
+    1. DEFINITIONS. <br>
+    1.1. "Affiliate" means any entity which directly or indirectly controls, is controlled by, or is under common control with the subject entity. "Control," for purposes of this definition, means direct or indirect ownership or control of more than 50% of the voting interests of the subject entity. <br>
+    1.2. "Content" has the meaning ascribed to it in Section 6.1 bellow. <br>
+    1.3. "Malicious Code" means viruses, worms, time bombs, Trojan horses and other harmful or malicious code, files, scripts, agents or programs. <br>
+    1.4. "Third Party Services" means online applications, tools, services and offline software products that are provided by Partners, which may, or may not, be identified as such, and that are offered to you through the Website, whether interoperate with the Services provided solely by TaskUp or not. <br>
+    1.5. "Order Form" means the documents for placing orders hereunder or any other manner by which You accessed to the Services, whether submitted online or otherwise, including any addenda or amendment thereto, that are entered into between You and TaskUp or any of our Partners from time to time. By entering into an Order Form hereunder, you agree to be bound by the terms of this Agreement as if it were an original party hereto. Order Forms shall be deemed incorporated herein by reference. <br>
+    1.6. "Partner" entities and/or individuals other than TaskUp, which are providing Services through the Website, whether interoperate with the Services provided solely by TaskUp or not. The list of Partners and certain Additional Terms attached hereto as Appendix A, which will be updated from time to time by TaskUp, at its sole discretion. <br>
+    1.7. "Premium Services" means Services that you or Your Affiliates purchase under an Order Form, as distinguished from Services provided through the Website, free of charge. <br>
+    1.8. "Services" means the products, modules, tools and services, whether chargeable or not, that are ordered by You and/or made available, from time to time, by TaskUp online via the Website and/or other web pages designated by TaskUp, including, without limitation, Third Party Services. <br>
+    1.9. "You" or "Your" means the company or other legal entity for which you are accepting this Agreement, and Affiliates of that company or entity.<br>
+    <br>
+    2. ELIGIBILITY <br>
+    Use of the Services is void where prohibited. By using the Services, You represent and warrant that (a) all registration information You submit is truthful and accurate; (b) You will maintain the accuracy of such information; (c) You are 14 years of age or older; and (d) Your use of the Services does not violate any applicable law or regulation. Your profile may be deleted and your registration as a member with the Website may be terminated without warning, if TaskUp believe that you are less than 14 years of age. By using the Premium Services, You declare and represents that You are more than 14 years of age and that You have full legal capacity to complete such contractual action, including the use of a credit card or use of any other method of payment, without need in any additional approvals or consents.<br>
+    <br>
+    3. THE SERVICES <br>
+    3.1. The Provision of the Services by TaskUp <br>
+    3.1.1. This Agreement grants you the possibility of using of the software of TaskUp via Internet as Software as a Service ("SaaS") for the term of this Agreement. <br>
+    3.1.2. TaskUp is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the Services, which TaskUp provides, may change from time to time without prior notice to you. <br>
+    3.1.3. As part of this continuing innovation, you acknowledge and agree that TaskUp may stop (permanently or temporarily) providing the Services (or any features within the Services) to you or to users generally at TaskUp' sole discretion, without prior notice to You. You may stop using the Services at any time. You acknowledge that TaskUp may replace its Partners, which provide the Third Party Services at any time, and from time to time, at its sole discretion, without obtaining You consent. <br>
+    3.1.4. You acknowledge and agree that if TaskUp disables access to Your account, You may be prevented from accessing the Services, Your account details or any files or other content which is contained in Your account, hence, TaskUp strongly recommends that You store any content You insert into the Services as any time You access to the Services. <br>
+    3.1.5. You acknowledge and agree that while TaskUp may not currently have set a fixed upper limit on the amount of storage space used for the provision of any Service, such fixed upper limits may be set by TaskUp at any time, at TaskUp' discretion. <br>
+    3.2. Availability of the Services. While TaskUp will make all reasonable efforts to ensure that the Services are available at all times, TaskUp does not guarantee, represent or warrant that Your access to any of the Services will be uninterrupted or error-free. In addition, while TaskUp makes reasonable efforts to ensure that all content and/or information submitted by You to TaskUp will be secure, TaskUp does not guarantee that the Services will be free from loss, corruption, attack, viruses, worms, trojan horses or other harmful components, or from interference, hacking or other security intrusions. You should be sure to back up your own system periodically to ensure that all content is available to you in the event of any loss or damage. TaskUp may change, suspend or discontinue any of the Services at any time. TaskUp may also impose limits on the use of or access to certain features or portions of the Services, in any case without notice or liability.<br>
+    <br>
+    4. USE OF THE SERVICES BY YOU <br>
+    4.1. In order to access certain Services, You may be required to provide information about Yourself (such as identification or contact details) as part of the registration process for the Service, or as part of Your continued use of the Services. You agree that any registration information You give to TaskUp will always be accurate, correct and up to date. <br>
+    4.2. You agree to use the Services only for purposes that are permitted by (a) this Agreement; and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions (including any laws regarding the export of data or software). <br>
+    4.3. You agree not to access (or attempt to access) any of the Services by any means other than through the interface that is provided by TaskUp, unless you have been specifically allowed to do so in a separate agreement with TaskUp. You specifically agree not to access (or attempt to access) any of the Services through any automated means (including use of scripts or web crawlers). <br>
+    4.4. You agree that You will not engage in any activity that interferes with or disrupts the Services (or the servers and networks which are connected to the Services). <br>
+    4.5. Unless You have been specifically permitted to do so in a separate written agreement with TaskUp, You agree that You will not reproduce, duplicate, copy, sell, trade or resell the Services for any purpose. <br>
+    4.6. You agree that You are solely responsible for (and that TaskUp has no responsibility to You or to any third party for) any breach of Your obligations under this Agreement and for the consequences (including any loss or damage which TaskUp may suffer) of any such breach.<br>
+    <br>
+    5. FEES AND PAYMENT FOR PREMIUM SERVICES <br>
+    5.1. The Premium Services offered on the Website require payment of fees. If you elect to sign up for Premium Services, You shall pay all applicable fees, as described on the Website in connection with such Premium Services selected by You. TaskUp reserves the right to change its prices and at any time. You authorize TaskUp directly or through third parties, to make any inquiries it considers necessary to validate Your account and financial information as provided while signing up for such Services. <br>
+    5.2. The fees for the Premium Services shall be paid as follows (unless instructed otherwise in the terms attached to any such Premium Services):<br>
+    <br>
+    A. Pay As You Go ("PAYG") You will be required to either provide the company with your credit card number and other relevant information that will enable TaskUp to charge it, or provide TaskUp with your PayPal account or any other method of payment, in order for TaskUp to charge You for the Premium Services, at any time upon purchase of Premium Services by You, all in accordance with the prices and timing of payment as shall be provided in the Website; or <br>
+    <br>
+    B. Recurring Charge ("Recurring Charge Plans") - The payment shall be made in accordance with the Recurring Charge Plans described in the Website. A member of one of the Recurring Charge Plans will provide his/her/its credit card number and any relevant information thereto and the relevant fees shall be charged automatically in accordance with the payment timing as detailed in the relevant Recurring Charge Plan. At each Recurring Charge Plan, You will be entitled to receive TaskUp' credit as described in the details of the recurring charge in the website (for demonstration purposes only, a recurring charge of $ 10 may entitle You to receive an additional $ 10 in TaskUp credit) per month (the "TaskUp Credit"). The TaskUp Credit shall be added to Your total credit in the Website to be used for purchasing Premium Services. If TaskUp does not receive a written request for termination of a Recurring Charge Plan to one of the addresses listed in Section 19 below, You acknowledge and understand that TaskUp will continue to charge You for the Premium Services as long as Your account remains active regardless if the Premium Services are used or not. The Recurring Charge Plans may be amended from time to time and may be subject to additional terms. Any payment of fees made out of Your Website credit shall be first deducted from the TaskUp Credit and only thereafter from the charged funds. The TaskUp Credit is NON-REFUNDABLE!<br>
+    <br>
+    5.3. You will provide TaskUp with valid and updated credit card information, or with a valid purchase order or alternative document reasonably acceptable to TaskUp. If You provide credit card information to TaskUp, You authorize TaskUp to charge such credit card for all Services purchased by You through the Website. <br>
+    5.4. If any amount owing by You under this Agreement or any other agreement for any Services is 30 or more days overdue (or 10 or more days overdue in the case of amounts You have authorized TaskUp to charge Your credit card), TaskUp may, without limiting TaskUp' other rights and remedies, accelerate Your unpaid fee obligations under such agreements so that all such obligations become immediately due and payable, and suspend Your access to the Services until such amounts are paid in full. We will give You at least 3 days prior notice that Your account is overdue, before suspending Services to You. <br>
+    5.5. Unless otherwise stated, the fees do not include any taxes, levies, duties or similar governmental assessments of any nature, including but not limited to value-added, sales, use or withholding taxes, assessable by any local, state, provincial, federal or foreign jurisdiction (collectively, "Taxes"). You are responsible for paying any and all Taxes associated with Your purchases hereunder. If TaskUp have the legal obligation to pay or collect Taxes for which You are responsible under this paragraph, the appropriate amount shall be invoiced to and paid by You, unless You provide TaskUp with a valid tax exemption certificate authorized by the appropriate taxing authority. For greater clarity, TaskUp is solely responsible for taxes assessable against it based on TaskUp' income, property and employees. <br>
+    5.6. TaskUp reserves the right to change the fees and to charge for use of Services that are currently available free of charge. You will not be charged for using any Services, unless You have opted for any of the payment methods listed above.<br>
+    <br>
+    7. CONTENT IN THE SERVICES <br>
+    7.1. You understand that all information (such as data files, written text, computer software, music, audio files or other sounds, photographs, videos or other images), formation, designing, storage, management, sharing and linking of media and/or document files (including, but not limited to user comments, messages, information, data, graphics, photographs, images, illustrations, animations, software, audio and video), which You may have access to as part of, or through Your use of, the Services are the sole responsibility of the person from which such content originated. All such information is referred to below as the Content. <br>
+    7.2. You should be aware that Content presented to You as part of the Services, including but not limited to advertisements in the Services and sponsored Content within the Services may be protected by intellectual property rights which are owned by the sponsors or advertisers who provide that Content to TaskUp (or by other persons or companies on their behalf). You may not modify, rent, lease, loan, sell, distribute or create derivative works based on this Content (either in whole or in part) unless You have been specifically told that You may do so by TaskUp or by the owners of that Content, in a separate written agreement. <br>
+    7.3. TaskUp reserves the right (but not the obligation) to pre-screen, review, flag, filter, modify, refuse or remove any or all Content from any Service. In addition, there are commercially available services and software to limit access to material that You may find objectionable. <br>
+    7.4. You understand that by using the Services You may be exposed to Content that You may find offensive, indecent or objectionable and that, in this respect, You use the Services at Your own risk. <br>
+    7.5. You agree that You are solely responsible for (and that TaskUp has no responsibility to You or to any third party for) any Content that You create, transmit or display while using the Services and for the consequences of Your actions (including any loss or damage which TaskUp may suffer) by doing so.<br>
+    <br>
+    8. CONTENT LICENSE FROM YOU <br>
+    8.1. You retain copyright and any other rights You already hold in Content which You submit, post or display on or through, the Services. <br>
+    8.2. You understand that TaskUp, in performing the required technical steps to provide the Services to our users, may (a) transmit or distribute Your Content over various public networks and in various media; and (b) make such changes to Your Content as are necessary to conform and adapt that Content to the technical requirements of connecting networks, devices, services or media. You agree that this license shall permit TaskUp to take these actions. <br>
+    8.3. You confirm and warrant to TaskUp that You have all the rights, power and authority necessary to grant the above license.<br>
+    <br>
+    9. OTHER CONTENT <br>
+    9.1. The Services may include hyperlinks to other web sites or content or resources. TaskUp may have no control over any web sites or resources which are provided by companies or persons other than TaskUp. <br>
+    9.2. You acknowledge and agree that TaskUp is not responsible for the availability of any such external sites or resources, and does not endorse any advertising, products or other materials on or available from such web sites or resources. <br>
+    9.3. You acknowledge and agree that TaskUp is not liable for any loss or damage which may be incurred by You as a result of the availability of those external sites or resources, or as a result of any reliance placed by You on the completeness, accuracy or existence of any advertising, products or other materials on, or available from, such web sites or resources. <br>
+    9.4. The Website may incorporate certain functionality that allows, via the system or network of which the Website is a component, the routing and transmission of, and online access to, certain digital communications and content made available by third parties (Third Party Content). By using such Website functionality, You acknowledge and agree that You are directing TaskUp to access and transmit to You Third Party Content associated with such functionality. Because TaskUp does not control Third Party Content, You agree that TaskUp is neither responsible nor liable for any Third Party Content, including the accuracy, integrity, quality, legality, usefulness, or safety of, or intellectual property rights relating to, Third Party Content. TaskUp has no obligation to monitor Third Party Content, and TaskUp may block or disable access to any Third Party Content (in whole or part) via the Website at any time. Your access to or receipt of Third Party Content via the Website does not imply TaskUp' endorsement of, or TaskUp' affiliation with any provider of, such Third Party Content. Further, Your use of Third Party Content may be governed by additional terms and conditions that are not set forth in this Agreement or TaskUp' Privacy Policy (for example, terms and conditions that are made available by the providers of such Third Party Content). This Agreement does not create any legal relationship between You and the providers of such Third Party Content with respect to such Third Party Content, and nothing in this Agreement shall be deemed to be a representation or warranty by TaskUp, or any of TaskUp' Affiliates, or respective representatives or providers, with respect to any Third Party Content.<br>
+    <br>
+    10. THIRD PARTY SERVICES. <br>
+    The Website may include Third Party Services. Because TaskUp does not control Third Party Services, You agree that neither TaskUp nor TaskUp' Affiliates, nor TaskUp' respective representatives, are responsible or liable for any Third Party Services, including the performance, accuracy, integrity, quality, legality, usefulness, or safety of, or intellectual property rights relating to, Third Party Services or their use. TaskUp has no obligation to monitor Third Party Services, and it may remove or restrict access to any Third Party Services (in whole or part) from the Website at any time. The availability of Third Party Services on the Website does not imply TaskUp' endorsement of, or TaskUp' affiliation with any provider of, such Third Party Services. Further, Your use of Third Party Services may be governed by additional terms and conditions that are not set forth in this Agreement or TaskUp' Privacy Policy (for example, terms and conditions that are made available by the providers themselves in connection with Third Party Services). This Agreement does not create any legal relationship between You and providers of a Third Party Services with respect to Third Party Services, and nothing in this Agreement shall be deemed to be a representation or warranty by TaskUp, or any of TaskUp' Affiliates, or TaskUp ' respective representatives or providers, with respect to any Third Party Service. TaskUp suggests that you consult your legal advisor before filing a notice or counter-notice.<br>
+    <br>
+    11. USE OF COMMUNICATION SERVICES <br>
+    The Website may contain bulletin board services, chat areas, news groups, forums, communities, personal web pages, calendars, and/or other message or communication facilities designed to enable You to communicate with the public at large or with a group (collectively, "Communication Services"), You agree to use the Communication Services only to post, send and receive messages and material that are proper and related to the particular Communication Service. By way of example, and not as a limitation, You agree that when using a Communication Service, You will not: <br>
+    11.1. Defame, abuse, harass, stalk, threaten or otherwise violate the legal rights (such as rights of privacy and publicity) of others. <br>
+    11.2. Publish, post, upload, distribute or disseminate any inappropriate, profane, defamatory, infringing, obscene, indecent or unlawful topic, name, material or information. <br>
+    11.3. Upload files that contain software or other material protected by intellectual property laws (or by rights of privacy of publicity) unless You own or control the rights thereto or have received all necessary consents. <br>
+    11.4. Upload files that contain viruses, corrupted files, or any other similar software or programs that may damage the operation of another's computer. <br>
+    11.5. Advertise or offer to sell or buy any goods or services for any business purpose, unless such Communication Service specifically allows such messages. <br>
+    11.6. Conduct or forward surveys, contests, pyramid schemes or chain letters. <br>
+    11.7. Download any file posted by another user of a Communication Service that you know, or reasonably should know, cannot be legally distributed in such manner. <br>
+    11.8. Falsify or delete any author attributions, legal or other proper notices or proprietary designations or labels of the origin or source of software or other material contained in a file that is uploaded. <br>
+    11.9. Restrict or inhibit any other user from using and enjoying the Communication Services. <br>
+    11.10. Violate any code of conduct or other guidelines which may be applicable for any particular Communication Service. <br>
+    11.11. Harvest or otherwise collect information about others, including e-mail addresses, without their consent. <br>
+    11.12. Violate any applicable laws or regulations.<br>
+    <br>
+    TaskUp has no obligation to monitor the Communication Services. However, TaskUp reserves the right to review materials posted to a Communication Service and to remove any materials in its sole discretion. TaskUp reserves the right to terminate Your access to any or all of the Communication Services at any time without notice for any reason whatsoever.<br>
+    <br>
+    TaskUp reserves the right at all times to disclose any information as necessary to satisfy any applicable law, regulation, legal process or governmental request, or to edit, refuse to post or to remove any information or materials, in whole or in part, in TaskUp sole discretion.<br>
+    <br>
+    Materials uploaded to a Communication Service may be subject to posted limitations on usage, reproduction and/or dissemination. You are responsible for adhering to such limitations if you download the materials<br>
+    <br>
+    15. INDEMNIFICATION You agree to defend, indemnify and hold harmless TaskUp, its parent corporation, officers, directors, employees and agents, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees) arising from: (i) Your use of and access to the Website and/or the Services; (ii) Your violation of any term of this Agreement; (iii) Your violation of any third party right, including without limitation any copyright, property, or privacy right; or (iv) any claim that one of Your content/data caused damage to a third party. This defense and indemnification obligation will survive he termination of the Services and of this Agreement.<br>
+    <br>
+    16. TERM AND TERMINATION <br>
+    16.1. This Agreement commences on the date You accept it and continues until terminated according to the provisions below. <br>
+    16.2. TaskUp reserves the right, upon its sole discretion and at any time, to prevent or restrict Your use of the Website and the Services, for any reason whatsoever, without prior notice and without TaskUp being liable toward You and toward any third party. <br>
+    16.3. Without derogating from the generality of the above, if and when, upon submitting an Order Form through the Website, You provide incorrect identifying details, including address, identification number, credit card details - in relation to the Services, etc. - and/or where You choose to pay by credit card and the application is rejected by the credit company and You fail to take action within three (3) days of receiving such rejection from the credit company in order to resolve the problem and obtain a new approval from the credit company, TaskUp shall be entitled to close Your user account upon its sole discretion, without derogating from its right to collect the payments due from You and/or any other remedy to which it shall be entitled by law. <br>
+    16.4. TaskUp may terminate this Agreement, Your account and the Services for any reason upon 10 days written notice to You. Subject to any Additional Terms applicable to a certain Service, You may terminate this Agreement, Your account and any of the Services at any time. Such termination shall be made on the Website and according to the instructions posted therein. The date and time of such termination of this Agreement, Your account and any of the Services shall be within three (3) days following the date and time on which You have completed the cancellation process on the Website. <br>
+    16.5. Upon any termination by TaskUp, You shall pay any unpaid fees covering the remainder of the term of all Order Forms after the effective date of termination. In no event shall any termination relieve You of the obligation to pay any fees payable to TaskUp for the period prior to the effective date of termination. <br>
+    16.6. You shall have the sole responsibility to back-up Your Content or any other data in comma separated value (.csv) format (or any other applicable format) along with attachments. TaskUp shall have no obligation to maintain or provide any of Your data/Content and upon termination of the Services, TaskUp may, in its sole discretion and unless legally prohibited, delete all of Your data/Content in TaskUp' systems or otherwise in TaskUp' possession or under TaskUp' control. <br>
+    16.7. Section 1 (Definitions), 5 (Fees and Payment for Purchased Services; in case of overdue payment) 11 (Disclaimer of Warranties; Limitation of Liability), 12, 15 (Indemnification), 16 (Term and Termination) and 17 (Refunds) and 21 (General), shall survive any termination or expiration of this Agreement.<br>
+    <br>
+    17. CLAIMS OF COPYRIGHT INFRINGEMENT. <br>
+    17.1. In the United States, the Digital Millennium Copyright Act of 1998 (the DMCA) provides recourse for copyright owners who believe that material appearing on the Internet infringes their rights under U.S. copyright law. Other protections for copyright owners are available in other jurisdictions. If you believe in good faith that materials available on the Website infringe Your copyright, You (or Your agent) may send TaskUp a notice requesting TaskUp to remove the material or disable access to it. If You believe in good faith that someone has wrongly filed a notice of copyright infringement against You, please send TaskUp a counter-notice. In the United States, notices and counter-notices must meet the then-current statutory requirements imposed by the DMCA (see http://www.copyright.gov for details). In addition, notices should include: Your contact details, the full bibliographic details of the material, the exact and full URL where You found the material, proof that You are the rights holder and a statement that, under penalty of perjury, You are the rights holder or are an authorized representative. <br>
+    17.2. Upon receipt of notification the Notice and Takedown procedure is then invoked as follows: (a) TaskUp will acknowledge receipt of Your complaint and will make an initial assessment of the validity and plausibility of the complaint; (b) upon receipt of a valid complaint the material will be temporarily removed from the website pending an agreed solution; (c) e will contact the contributor who deposited the material, if relevant, and the contributor will be notified that the material is subject to a complaint, under what allegations, and will be encouraged to assuage the complaints concerned; (d) the complainant and the contributor will be encouraged to resolve the issue swiftly and amicably and to the satisfaction of both parties, and the material is replaced on the website unchanged or with changes, or is permanently removed. If the contributor and the complainant are unable to agree a solution, the material will remain unavailable through the Website until a time when a resolution has been reached. <br>
+    <br>
+    Notices and counter-notices should be sent to: <br>
+    <br>
+    via registered mail<br>
+    TaskUp, LLC<br>
+    86 Saint Botolph St, #10<br>
+    Boston, MA 02116<br>
+    USA<br>
+    <br>
+    Via e-mail: <br>
+    info@taskup.com
+    <br>
+    18. GENERAL <br>
+    18.1. Assignment. Neither party may assign any of its rights or obligations hereunder, whether by operation of law or otherwise, without the prior written consent of the other party (not to be unreasonably withheld). Notwithstanding the foregoing, TaskUp may assign this Agreement in its entirety (including all Order Forms), without Your consent, to its Affiliate or in connection with a merger, acquisition, corporate reorganization, or sale of all or substantially all of its assets. A party's sole remedy for any purported assignment by the other party in breach of this paragraph shall be, at the non-assigning party's election, termination of this Agreement upon written notice to the assigning party. <br>
+    18.2. Entire Agreement. This Agreement, the Privacy Policy and any other Additional Terms of Services or of the Website posted by TaskUp, including all exhibits and addenda hereto and all Order Forms, constitutes the entire agreement between the parties and supersedes all prior and contemporaneous agreements, proposals or representations, written or oral, concerning its subject matter. <br>
+    18.3. You agree that: (i) the Website shall be deemed solely based in the U.S.; and (ii) the Website shall be deemed a passive website that does not give rise to personal jurisdiction over TaskUp, either specific or general, in jurisdictions other than the U.S. This Agreement shall be governed by the internal substantive laws of the U.S., without respect to its conflict of laws principles. Any claim or dispute between You and TaskUp that arises in whole or in part from the Website and/or the Services shall be decided exclusively by a court of competent jurisdiction located in Boston, Massachusetts. If any provision of this Agreement is deemed invalid by a court of competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of this Agreement, which shall remain in full force and effect. No waiver of any term of this Agreement shall be deemed a further or continuing waiver of such term or any other term, and TaskUp' failure to assert any right or provision under this Agreement shall not constitute a waiver of such right or provision. YOU AND TaskUp AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THE WEBSITE AND/OR THE SERVICES MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES. OTHERWISE, SUCH CAUSE OF ACTION SHALL BE PERMANENTLY BARRED. <br>
+    <br>
+    By registering to the Website and providing Your email address, You expressly agree to receive promotional content from TaskUp, by email, from time to time. If You provide TaskUp with Your phone number (at any stage of use of the Services), TaskUp shall be entitled to send You promotional SMS notices from time to time. If You wish not to receive such promotional content / notices, you may notify TaskUp at any time.
+    </p>
+    </div>
 </template>

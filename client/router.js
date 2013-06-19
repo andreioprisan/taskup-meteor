@@ -4,7 +4,7 @@ Meteor.Router.add({
         return 'home';
     },
 
-    '/static_pages/:page': function(page) {
+    '/static/:page': function(page) {
         Session.set("current_page", page);
         return page;
     },
@@ -55,4 +55,4 @@ Meteor.Router.filters({
 
 
 
-Meteor.Router.filter('requireLogin', {except: ['home', 'signin', 'signup', 'about', 'terms']});
+Meteor.Router.filter('requireLogin', {except: ['home', 'signin', 'signup', 'about', 'terms', 'privacy']});
