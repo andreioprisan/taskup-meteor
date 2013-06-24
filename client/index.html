@@ -213,22 +213,44 @@
 
 <template name="home-loginbox">
     <div id="loginbox" class="" style="margin-top:80px">
+
         <div class="row">
-            <div class="large-12 columns align-center">
-                <h2 style="display:inline-block;">social</h2>
-                <div style="display:inline-block; padding: 10px">
-                    <a href="/auth/facebook?type=web" style="padding:10px"><img src="/img/social/facebook.png" style="border:0px; "></a> &nbsp;
-                </div>
-                <div style="display:inline-block; padding: 10px">
-                    <a href="/auth/google?type=web"><img src="/img/social/google.png" style="border:0px; "></a> &nbsp;
-                </div>
-                <div style="display:inline-block; padding: 10px">
-                    <a href="/auth/windows?type=web"><img src="/img/social/windows.png" style="border:0px; "></a> &nbsp;
-                </div>
+            <div class="large-4 columns feature">
+                <h3>one click</h3>
+                <p>
+                    <div style="display:inline-block; padding: 10px">
+                        <a href="/auth/facebook?type=web" style="padding:10px"><img src="/img/social/facebook.png" style="border:0px; "></a> &nbsp;
+                    </div>
+                    <div style="display:inline-block; padding: 10px">
+                        <a href="/auth/google?type=web"><img src="/img/social/google.png" style="border:0px; "></a> &nbsp;
+                    </div>
+                    <div style="display:inline-block; padding: 10px">
+                        <a href="/auth/windows?type=web"><img src="/img/social/windows.png" style="border:0px; "></a> &nbsp;
+                    </div>  
+                </p>
             </div>
-            <div class="large-2 columns align-center">
-                <h2><span class="grey">or</span></h2>
+            <div class="large-4 columns feature">
+                <p>or</p>
             </div>
+            <div class="large-4 columns feature">
+                <h3>email login</h3>
+                <p>
+                    <form class="form-inline" onsubmit="loginformsingle(); return false;">
+                        <input id="action" type="hidden" value="signup">
+                        <input id="email" type="text" class="input" placeholder="email" style="margin-left:0px; width: 180px; display:inline">
+                        <input id="password" type="password" class="input" placeholder="password" style="margin-left:10px; width:180px; display:inline">
+                        <button id="loginbutton" type="submit" class="button btn small" onclick="" style="margin-left:10px">Sign up</button><br>
+                        <div id="signupinfo" onclick="make_sign_up(); return false;" class="alert alert-info" style="margin-top: 10px; margin-left: 0px; width: 415px; text-align: center; height: 13px; padding-top: 2px; font-size: 14px;">Don't have an account? <b><a href="#" onclick="make_sign_up(); return false;">Sign Up for Free!</a></b></div>
+                        <input id="name" type="text" class="input" placeholder="full name" style="margin-left: 0px; margin-top: 10px; width: 180px; display:inline; display:none; ">
+                        <input id="password2" type="password" class="input" placeholder="confirm password" style="margin-top: 10px; width: 180px; display:inline; margin-left: 10px; display:none; ">
+                    </form>
+
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+
             <div class="large-6 columns align-left">
                 <script type="text/javascript">
                 $(function(){
